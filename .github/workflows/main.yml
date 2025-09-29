@@ -10,32 +10,36 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout code
+      # Step 1: Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2️⃣ Setup Node.js
+      # Step 2: Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      # 3️⃣ Install dependencies inside frontend
+      # Step 3: Install dependencies inside frontend
       - name: Install dependencies
-        run: cd frontend && npm ci
+        run: |
+          cd frontend
+          npm ci
 
-      # 4️⃣ Build React app inside frontend
+      # Step 4: Build project inside frontend
       - name: Build project
-        run: cd frontend && npm run build
+        run: |
+          cd frontend
+          npm run build
 
-      # 5️⃣ Deploy to Netlify
+      # Step 5: Deploy to Netlify
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2
         with:
           publish-dir: ./frontend/build
           production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "🚀 Auto-deployed from GitHub Actions"
+          deploy-message: "🚀 Deployed via GitHub Actions"
           enable-pull-request-comment: false
           enable-commit-comment: false
         env:
