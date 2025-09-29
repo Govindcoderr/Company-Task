@@ -4,7 +4,7 @@ import TaskFilters from "./components/TaskFilters";
 import TaskList from "./components/TaskList";
 import { Card } from "./components/ui/Card";
 
-// Categories for the task dropdown
+// Categories for the task dropdown 
 const categories = [
   { value: "Work", label: "Work" },
   { value: "Personal", label: "Personal" },
@@ -17,7 +17,7 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [taskName, setTaskName] = useState("");
   const [category, setCategory] = useState("Work");
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState("all"); 
 
   // Load tasks from localStorage on mount
   useEffect(() => {

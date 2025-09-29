@@ -5,7 +5,7 @@ function TaskFilters({ filter, setFilter, tabs }) {
   const handleFilterChange = (value) => {
     console.log("Setting filter to:", value);
     setFilter(value);
-  };
+  }; 
 
   return <Tabs value={filter} onChange={handleFilterChange} tabs={tabs} className="mb-4" />;
 }
